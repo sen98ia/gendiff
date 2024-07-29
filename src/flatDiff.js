@@ -9,18 +9,18 @@ const flatDiff = (data1, data2) => {
   const lines = sortedEntries.map((entry) => {
     const [key, value] = entry;
     if (!Object.hasOwn(data1, key)) {
-      return `+ ${key}: ${value}`;
+      return `  + ${key}: ${value}`;
     }
     if (!Object.hasOwn(data2, key)) {
-      return `- ${key}: ${value}`;
+      return `  - ${key}: ${value}`;
     }
     if (data1[key] === value && data2[key] !== value) {
-      return `- ${key}: ${value}`;
+      return `  - ${key}: ${value}`;
     }
     if (data1[key] !== value && data2[key] === value) {
-      return `+ ${key}: ${value}`;
+      return `  + ${key}: ${value}`;
     }
-    return `  ${key}: ${value}`;
+    return `    ${key}: ${value}`;
   });
 
   const resultLines = [...new Set([...lines])];
