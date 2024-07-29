@@ -8,7 +8,7 @@
     "gendiff": "bin/gendiff.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "Esenia Zipunnikova",
   "license": "ISC",
@@ -20,8 +20,10 @@
     "@eslint/create-config": "^1.0.1",
     "@eslint/eslintrc": "^3.1.0",
     "@eslint/js": "^9.7.0",
+    "@jest/globals": "^29.7.0",
     "eslint": "^8.57.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.29.1"
+    "eslint-plugin-import": "^2.29.1",
+    "jest": "^29.7.0"
   }
 }
