@@ -1,20 +1,20 @@
 import { test, expect } from '@jest/globals';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import fs from 'fs';
 import genDiff from '../src/index.js';
 
-// проверяю тесты в лоб
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-test('compare flat .json', () => {
-  const expectedResult = fs.readFileSync('./__fixtures__/expectedResult.txt', 'utf-8');
-  expect(genDiff('__fixtures__/file1.json', '__fixtures__/file2.json')).toBe(expectedResult);
-});
+const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
+const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
-test('compare flat .yaml', () => {
-  const expectedResult = fs.readFileSync('./__fixtures__/expectedResult.txt', 'utf-8');
-  expect(genDiff('__fixtures__/file1.yaml', '__fixtures__/file2.yaml')).toBe(expectedResult);
-});
+const extentions = ['json', 'yaml'];
 
-test('compare flat .yaml and .json', () => {
-  const expectedResult = fs.readFileSync('./__fixtures__/expectedResult.txt', 'utf-8');
-  expect(genDiff('__fixtures__/file1.json', '__fixtures__/file2.yaml')).toBe(expectedResult);
+test.each(extentions)('test plain format', (extention) => {
+  const filePath1 = getFixturePath(`file1.${extention}`);
+  const filePath2 = getFixturePath(`file2.${extention}`);
+  const expectedResult = readFile('expectedPlain.txt');
+  expect(genDiff(filePath1, filePath2)).toBe(expectedResult);
 });
