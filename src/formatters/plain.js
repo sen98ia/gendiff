@@ -20,8 +20,7 @@ const plain = (tree) => {
       case 'updated':
         line += `. From ${defineValue(node.oldValue)} to ${defineValue(node.newValue)}`;
         break;
-      case 'removed':
-        break;
+      case 'removed': break;
       case 'unchanged':
         line = [];
         break;
@@ -32,8 +31,7 @@ const plain = (tree) => {
           newEl.key = `${ancestorName}.${newEl.key}`;
           return innerFunc(newEl);
         });
-      default:
-        break;
+      default: break;
     }
     return line;
   };
