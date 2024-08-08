@@ -12,7 +12,7 @@ const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8'
 
 const extentions = ['json', 'yaml', 'yml'];
 
-test.each(extentions)('test formatters', (extention) => {
+test.each(extentions)('check formatters', (extention) => {
   const filePath1 = getFixturePath(`file1.${extention}`);
   const filePath2 = getFixturePath(`file2.${extention}`);
   const expectedStylish = readFile('expectedStylish.txt');
