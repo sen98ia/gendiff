@@ -17,18 +17,14 @@
 <p>Node.js v13.2.0 or higher.</p>
 
 <h2>Setup</h2>
-```
-git clone git@github.com:sen98ia/frontend-project-46.git
-```
-```
-cd frontend-project-44
-```
-```
-npm install
-```
-```
-npm link
-```
+
+<code>git clone git@github.com:sen98ia/frontend-project-46.git</code>
+
+<code>cd frontend-project-44</code>
+
+<code>npm install</code>
+
+<code>npm link</code>
 
 <h2>Usage and report demonstration</h2>
 <p>Use <code>gendiff -h</code> to see usage information.</p>
