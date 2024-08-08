@@ -23,7 +23,7 @@
 <code>npm link</code>
 
 <h2>Usage and report demonstration</h2>
-<p>Use <code>gendiff -h</code> to see usage information</p>
+<p>Use <code>gendiff -h</code> to see usage information.</p>
 <h3>Stylish</h3>
 <p><code>gendiff filepath1.json filepath2.json</code> or <code>gendiff --format stylish filepath1.json filepath2.json</code></p>
 <a href="https://asciinema.org/a/sW6amtwCiF4BdRDFU9L2fQEeu" target="_blank"><img src="https://asciinema.org/a/sW6amtwCiF4BdRDFU9L2fQEeu.svg" /></a>
