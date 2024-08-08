@@ -12,17 +12,15 @@ const defineValue = (value) => {
 
 const plain = (tree) => {
   const innerFunc = (node) => {
-    let line = `Property '${node.key}' was ${node.state}`;
+    if (node.state === 'unchanged') return [];
+
+    const line = [`Property '${node.key}' was ${node.state}`];
     switch (node.state) {
       case 'added':
-        line += ` with value: ${defineValue(node.value)}`;
+        line.push(` with value: ${defineValue(node.value)}`);
         break;
       case 'updated':
-        line += `. From ${defineValue(node.oldValue)} to ${defineValue(node.newValue)}`;
-        break;
-      case 'removed': break;
-      case 'unchanged':
-        line = [];
+        line.push(`. From ${defineValue(node.oldValue)} to ${defineValue(node.newValue)}`);
         break;
       case 'nested':
         return node.value.flatMap((el) => {
@@ -33,7 +31,7 @@ const plain = (tree) => {
         });
       default: break;
     }
-    return line;
+    return line.join('');
   };
   return tree.flatMap(innerFunc).join('\n');
 };
