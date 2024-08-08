@@ -8,30 +8,21 @@ const diffTree = (data1, data2) => {
   const sortedKeys = _.orderBy(keys);
 
   const result = sortedKeys.map((key) => {
-    const element = {};
     if (!Object.hasOwn(data2, key)) {
-      element.key = key;
-      element.state = 'removed';
-      element.value = data1[key];
-    } else if (!Object.hasOwn(data1, key)) {
-      element.key = key;
-      element.state = 'added';
-      element.value = data2[key];
-    } else if (_.isPlainObject(data1[key]) && _.isPlainObject(data2[key])) {
-      element.key = key;
-      element.state = 'nested';
-      element.value = diffTree(data1[key], data2[key]);
-    } else if (data1[key] !== data2[key]) {
-      element.key = key;
-      element.state = 'updated';
-      element.oldValue = data1[key];
-      element.newValue = data2[key];
-    } else {
-      element.key = key;
-      element.state = 'unchanged';
-      element.value = data1[key];
+      return { key, state: 'removed', value: data1[key] };
     }
-    return element;
+    if (!Object.hasOwn(data1, key)) {
+      return { key, state: 'added', value: data2[key] };
+    }
+    if (_.isPlainObject(data1[key]) && _.isPlainObject(data2[key])) {
+      return { key, state: 'nested', value: diffTree(data1[key], data2[key]) };
+    }
+    if (data1[key] !== data2[key]) {
+      return {
+        key, state: 'updated', oldValue: data1[key], newValue: data2[key],
+      };
+    }
+    return { key, state: 'unchanged', value: data1[key] };
   });
 
   return result;
