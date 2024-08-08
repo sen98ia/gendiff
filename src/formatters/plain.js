@@ -25,10 +25,9 @@ const plain = (tree) => {
       case 'removed':
         return `Property '${key}' was ${state}`;
       case 'nested':
-        return node.value.flatMap((el) => {
-          const newEl = el;
-          const ancestorName = node.key;
-          newEl.key = `${ancestorName}.${newEl.key}`;
+        return value.flatMap((el) => {
+          const newKey = `${key}.${el.key}`;
+          const newEl = { ...el, key: newKey };
           return innerFunc(newEl);
         });
       default:
