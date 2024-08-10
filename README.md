@@ -36,6 +36,6 @@
 <code>gendiff --format plain filepath1.json filepath2.json</code>
 <a href="https://asciinema.org/a/0G0Nxiu4cp6eTNvgfW3pv4TwX" target="_blank"><img src="https://asciinema.org/a/0G0Nxiu4cp6eTNvgfW3pv4TwX.svg" /></a>
 
-<h3>Plain</h3>
+<h3>JSON</h3>
 <code>gendiff --format json filepath1.json filepath2.json</code>
 https://asciinema.org/a/LNdZ0iG64JlfbYjhkf5dKE9Z5
