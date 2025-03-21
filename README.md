@@ -4,6 +4,7 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/b4ea84f28b3f2f18996b/test_coverage)](https://codeclimate.com/github/sen98ia/frontend-project-46/test_coverage)
 
 # :mag:Gendiff
+Build with: JavaScript, Jest, ESLint, npm, lodash, commander.
 
 ## Description
 
